@@ -22,6 +22,8 @@ public class UserCreationRequest {
     )
     private String password;
     private String gender;
+
+    @NotBlank(message = "Gmail không được để trống")
     @Pattern(
             regexp = "^[a-zA-Z0-9]+@gmail\\.com$",
             message = "Sai định dạng Gmail"

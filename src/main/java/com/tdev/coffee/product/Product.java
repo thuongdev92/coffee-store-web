@@ -1,4 +1,4 @@
-package com.tdev.coffee.entity;
+package com.tdev.coffee.product;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

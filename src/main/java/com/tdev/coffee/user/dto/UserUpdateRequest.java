@@ -1,35 +1,10 @@
-package com.tdev.coffee.entity;
+package com.tdev.coffee.user.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Size;
-
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
-    private String username;
+public class UserUpdateRequest {
     private String password;
     private String gender;
     private String gmail;
     private long phone;
-
-
-    public String getId() {
-        return id;
-    }
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getPassword() {
         return password;

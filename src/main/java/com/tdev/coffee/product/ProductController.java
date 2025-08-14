@@ -1,9 +1,7 @@
-package com.tdev.coffee.controller;
+package com.tdev.coffee.product;
 
-import com.tdev.coffee.dto.request.product.ProductCreationRequest;
-import com.tdev.coffee.dto.request.product.ProductUpdatePriceRequest;
-import com.tdev.coffee.entity.Product;
-import com.tdev.coffee.service.ProductService;
+import com.tdev.coffee.product.dto.ProductCreationRequest;
+import com.tdev.coffee.product.dto.ProductUpdatePriceRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,21 +22,21 @@ public class ProductController {
 
     @GetMapping
     List<Product> getProducts() {
-        return productService.getProducts();
+        return productService.getAllProducts();
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/{id}")
     Product getProduct(@PathVariable int productId) {
         return productService.getProduct(productId);
     }
 
 
-    @PutMapping("/{productId}")
+    @PutMapping("/{id}")
     Product updateProduct(@PathVariable int productId, @RequestBody ProductUpdatePriceRequest request) {
         return productService.updateProduct(productId, request);
     }
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("/{id}")
     String deleteProduct(@PathVariable int productId) {
         return productService.deleteProduct(productId);
     }

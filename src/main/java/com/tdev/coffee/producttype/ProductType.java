@@ -1,4 +1,4 @@
-package com.tdev.coffee.entity;
+package com.tdev.coffee.producttype;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Product_Type {
+public class ProductType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

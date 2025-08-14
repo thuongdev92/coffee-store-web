@@ -1,6 +1,5 @@
-package com.tdev.coffee.repository;
+package com.tdev.coffee.user;
 
-import com.tdev.coffee.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

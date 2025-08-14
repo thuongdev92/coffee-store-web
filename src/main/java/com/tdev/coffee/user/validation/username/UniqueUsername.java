@@ -1,4 +1,4 @@
-package com.tdev.coffee.validation.username;
+package com.tdev.coffee.user.validation.username;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

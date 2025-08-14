@@ -1,19 +1,26 @@
-package com.tdev.coffee.dto.reponse.user;
+package com.tdev.coffee.user;
 
-public class UserUpdateResponse {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     private String username;
     private String password;
     private String gender;
     private String gmail;
     private long phone;
 
-    public UserUpdateResponse(String username, String password, String gender, String gmail, long phone) {
-        this.username = username;
-        this.password = password;
-        this.gender = gender;
-        this.gmail = gmail;
-        this.phone = phone;
+
+    public String getId() {
+        return id;
     }
+
 
     public String getUsername() {
         return username;

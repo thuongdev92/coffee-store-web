@@ -1,9 +1,7 @@
-package com.tdev.coffee.service;
+package com.tdev.coffee.product;
 
-import com.tdev.coffee.dto.request.product.ProductCreationRequest;
-import com.tdev.coffee.dto.request.product.ProductUpdatePriceRequest;
-import com.tdev.coffee.entity.Product;
-import com.tdev.coffee.repository.ProductRepository;
+import com.tdev.coffee.product.dto.ProductCreationRequest;
+import com.tdev.coffee.product.dto.ProductUpdatePriceRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +22,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public List<Product> getProducts() {
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 

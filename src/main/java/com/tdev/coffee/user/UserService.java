@@ -1,11 +1,9 @@
-package com.tdev.coffee.service;
+package com.tdev.coffee.user;
 
-import com.tdev.coffee.dto.reponse.user.UserCreationResponse;
-import com.tdev.coffee.dto.reponse.user.UserUpdateResponse;
-import com.tdev.coffee.dto.request.user.UserCreationRequest;
-import com.tdev.coffee.dto.request.user.UserUpdateRequest;
-import com.tdev.coffee.entity.User;
-import com.tdev.coffee.repository.UserRepository;
+import com.tdev.coffee.user.dto.UserCreationResponse;
+import com.tdev.coffee.user.dto.UserUpdateResponse;
+import com.tdev.coffee.user.dto.UserCreationRequest;
+import com.tdev.coffee.user.dto.UserUpdateRequest;
 import org.springframework.stereotype.Service;
 
 
@@ -37,7 +35,7 @@ public class UserService {
                 .orElseThrow(() -> new RuntimeException("ID user not found"));
     }
 
-    public List<User> getAllUser() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 

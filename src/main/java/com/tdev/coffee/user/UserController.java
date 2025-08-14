@@ -1,11 +1,9 @@
-package com.tdev.coffee.controller;
+package com.tdev.coffee.user;
 
-import com.tdev.coffee.dto.reponse.user.UserCreationResponse;
-import com.tdev.coffee.dto.reponse.user.UserUpdateResponse;
-import com.tdev.coffee.dto.request.user.UserCreationRequest;
-import com.tdev.coffee.dto.request.user.UserUpdateRequest;
-import com.tdev.coffee.entity.User;
-import com.tdev.coffee.service.UserService;
+import com.tdev.coffee.user.dto.UserCreationResponse;
+import com.tdev.coffee.user.dto.UserUpdateResponse;
+import com.tdev.coffee.user.dto.UserCreationRequest;
+import com.tdev.coffee.user.dto.UserUpdateRequest;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,22 +22,22 @@ public class UserController {
         return userService.createUser(request);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/{id}")
     User getUser(@PathVariable String userId) {
         return userService.getUser(userId);
     }
 
     @GetMapping
     List<User> getAllUser() {
-        return userService.getAllUser();
+        return userService.getAllUsers();
     }
 
-    @PutMapping("/{userId}")
+    @PutMapping("/{id}")
     UserUpdateResponse updateUSer(@PathVariable String userId,@RequestBody UserUpdateRequest request) {
         return userService.updateUser(userId, request);
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/{id}")
     String deleteUser(@PathVariable String userId) {
         return userService.deleteUser(userId);
     }

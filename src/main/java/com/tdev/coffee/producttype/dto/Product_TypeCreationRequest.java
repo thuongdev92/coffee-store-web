@@ -1,4 +1,4 @@
-package com.tdev.coffee.dto.request.producttype;
+package com.tdev.coffee.producttype.dto;
 
 public class Product_TypeCreationRequest {
     private String product_Type_Name;

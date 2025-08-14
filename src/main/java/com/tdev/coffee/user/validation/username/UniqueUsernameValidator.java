@@ -1,9 +1,9 @@
-package com.tdev.coffee.validation.username;
+package com.tdev.coffee.user.validation.username;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.stereotype.Component;
-import com.tdev.coffee.repository.UserRepository;
+import com.tdev.coffee.user.UserRepository;
 
 @Component
 public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername, String> {

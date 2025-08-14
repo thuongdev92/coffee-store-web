@@ -1,4 +1,4 @@
-package com.tdev.coffee.dto.request;
+package com.tdev.coffee.dto.request.user;
 
 public class UserUpdateRequest {
     private String password;

@@ -1,4 +1,4 @@
-package com.tdev.coffee.dto.reponse;
+package com.tdev.coffee.dto.reponse.user;
 
 public class UserUpdateResponse {
     private String username;

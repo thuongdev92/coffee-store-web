@@ -1,9 +1,9 @@
 package com.tdev.coffee.controller;
 
-import com.tdev.coffee.dto.reponse.UserCreationResponse;
-import com.tdev.coffee.dto.reponse.UserUpdateResponse;
-import com.tdev.coffee.dto.request.UserCreationRequest;
-import com.tdev.coffee.dto.request.UserUpdateRequest;
+import com.tdev.coffee.dto.reponse.user.UserCreationResponse;
+import com.tdev.coffee.dto.reponse.user.UserUpdateResponse;
+import com.tdev.coffee.dto.request.user.UserCreationRequest;
+import com.tdev.coffee.dto.request.user.UserUpdateRequest;
 import com.tdev.coffee.entity.User;
 import com.tdev.coffee.service.UserService;
 import jakarta.validation.Valid;

@@ -1,4 +1,4 @@
-package com.tdev.coffee.dto.request;
+package com.tdev.coffee.dto.request.user;
 
 import com.tdev.coffee.validation.username.UniqueUsername;
 import jakarta.validation.constraints.NotBlank;
@@ -28,8 +28,8 @@ public class UserCreationRequest {
             regexp = "^[a-zA-Z0-9]+@gmail\\.com$",
             message = "Sai định dạng Gmail"
     )
-    @NotBlank(message = "Gmail không được để trống")
     private String gmail;
+
     private long phone;
 
     public String getUsername() {

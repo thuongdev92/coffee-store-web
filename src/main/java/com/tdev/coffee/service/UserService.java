@@ -1,9 +1,9 @@
 package com.tdev.coffee.service;
 
-import com.tdev.coffee.dto.reponse.UserCreationResponse;
-import com.tdev.coffee.dto.reponse.UserUpdateResponse;
-import com.tdev.coffee.dto.request.UserCreationRequest;
-import com.tdev.coffee.dto.request.UserUpdateRequest;
+import com.tdev.coffee.dto.reponse.user.UserCreationResponse;
+import com.tdev.coffee.dto.reponse.user.UserUpdateResponse;
+import com.tdev.coffee.dto.request.user.UserCreationRequest;
+import com.tdev.coffee.dto.request.user.UserUpdateRequest;
 import com.tdev.coffee.entity.User;
 import com.tdev.coffee.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,6 @@ public class UserService {
     }
 
     public UserCreationResponse createUser(UserCreationRequest request) {
-//        if (userRepository.existsByUsername(request.getUsername())) {
-//            throw new RuntimeException("username existed !!");
-//        }
 
         User user = new User();
         user.setUsername(request.getUsername());

@@ -1,13 +1,13 @@
 package com.tdev.coffee.user;
 
-import com.tdev.coffee.user.dto.UserCreationResponse;
-import com.tdev.coffee.user.dto.UserUpdateResponse;
-import com.tdev.coffee.user.dto.UserCreationRequest;
-import com.tdev.coffee.user.dto.UserUpdateRequest;
+import com.tdev.coffee.user.dto.response.UserResponse;
+import com.tdev.coffee.user.dto.request.UserCreationRequest;
+import com.tdev.coffee.user.dto.request.UserUpdateRequest;
 import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -17,42 +17,52 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserCreationResponse createUser(UserCreationRequest request) {
+    public UserResponse createUser(UserCreationRequest request) {
 
-        User user = new User();
+        UserEntity user = new UserEntity();
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
         user.setGender(request.getGender());
         user.setGmail(request.getGmail());
         user.setPhone(request.getPhone());
 
-        User saved = userRepository.save(user);
-        return new UserCreationResponse(saved.getUsername(), saved.getGmail());
+        UserEntity saved = userRepository.save(user);
+        return new UserResponse(saved.getId(), saved.getUsername(), saved.getGmail());
     }
 
-    public User getUser(String userId) {
+    public UserResponse getUserResponse(String userId) {
         return userRepository.findById(userId)
+                .map(userEntity -> new UserResponse(userEntity.getId(), userEntity.getUsername(), userEntity.getGender()))
                 .orElseThrow(() -> new RuntimeException("ID user not found"));
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponse> getAllUsersResponse() {
+        return userRepository.findAll().stream()
+                .map(userEntity -> new UserResponse(userEntity.getId(), userEntity.getUsername(), userEntity.getGender()))
+                .toList();
     }
 
-    public UserUpdateResponse updateUser(String userId, UserUpdateRequest request) {
-        User user = getUser(userId);
+    public UserResponse updateUser(String userId, UserUpdateRequest request) {
+        UserEntity user = getUserEntity(userId);
 
         user.setPassword(request.getPassword());
         user.setGender(request.getGender());
         user.setGmail(request.getGmail());
         user.setPhone(request.getPhone());
 
-        User saved = userRepository.save(user);
-        return new UserUpdateResponse(saved.getUsername(), saved.getPassword(), saved.getGender(), user.getGmail(), user.getPhone());
+        UserEntity saved = userRepository.save(user);
+        return new UserResponse(saved.getId(), saved.getUsername(), saved.getGender());
     }
 
     public String deleteUser(String userId) {
         userRepository.deleteById(userId);
         return "delete successfully !!!";
     }
+
+
+    public UserEntity getUserEntity(String userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
 }

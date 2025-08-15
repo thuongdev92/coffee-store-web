@@ -1,23 +1,8 @@
-package com.tdev.coffee.product;
+package com.tdev.coffee.product.dto.request;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class ProductCreationRequest {
     private String productName;
     private int productPrice;
-
-    //    private ProductType productType;
-
-    public long getId() {
-        return id;
-    }
 
     public String getProductName() {
         return productName;

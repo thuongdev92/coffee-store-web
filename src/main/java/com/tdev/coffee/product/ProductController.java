@@ -1,7 +1,8 @@
 package com.tdev.coffee.product;
 
-import com.tdev.coffee.product.dto.ProductCreationRequest;
-import com.tdev.coffee.product.dto.ProductUpdatePriceRequest;
+import com.tdev.coffee.product.dto.request.ProductCreationRequest;
+import com.tdev.coffee.product.dto.request.ProductUpdatePriceRequest;
+import com.tdev.coffee.product.dto.response.ProductResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,28 +16,28 @@ public class ProductController {
     }
 
     @PostMapping
-    Product createProduct(@RequestBody ProductCreationRequest request) {
+    ProductResponse createProduct(@RequestBody ProductCreationRequest request) {
         return productService.createProduct(request);
     }
 
 
     @GetMapping
-    List<Product> getProducts() {
+    List<ProductEntity> getProducts() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{id}")
-    Product getProduct(@PathVariable int productId) {
+    @GetMapping("/{productId}")
+    ProductEntity getProduct(@PathVariable int productId) {
         return productService.getProduct(productId);
     }
 
 
-    @PutMapping("/{id}")
-    Product updateProduct(@PathVariable int productId, @RequestBody ProductUpdatePriceRequest request) {
+    @PutMapping("/{productId}")
+    ProductEntity updateProduct(@PathVariable int productId, @RequestBody ProductUpdatePriceRequest request) {
         return productService.updateProduct(productId, request);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{productId}")
     String deleteProduct(@PathVariable int productId) {
         return productService.deleteProduct(productId);
     }

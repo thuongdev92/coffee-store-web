@@ -1,8 +1,8 @@
-package com.tdev.coffee.product;
+package com.tdev.coffee.cftable;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
+public interface CfTableRepository extends JpaRepository<CfTableEntity, Integer> {
 }

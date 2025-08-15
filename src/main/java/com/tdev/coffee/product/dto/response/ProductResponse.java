@@ -1,8 +1,13 @@
-package com.tdev.coffee.product.dto;
+package com.tdev.coffee.product.dto.response;
 
-public class ProductCreationRequest {
+public class ProductResponse {
     private String productName;
     private int productPrice;
+
+    public ProductResponse(String productName, int productPrice) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+    }
 
     public String getProductName() {
         return productName;

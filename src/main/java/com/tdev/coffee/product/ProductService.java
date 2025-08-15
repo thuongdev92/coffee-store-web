@@ -1,7 +1,8 @@
 package com.tdev.coffee.product;
 
-import com.tdev.coffee.product.dto.ProductCreationRequest;
-import com.tdev.coffee.product.dto.ProductUpdatePriceRequest;
+import com.tdev.coffee.product.dto.request.ProductCreationRequest;
+import com.tdev.coffee.product.dto.request.ProductUpdatePriceRequest;
+import com.tdev.coffee.product.dto.response.ProductResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,28 +14,27 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public Product createProduct(ProductCreationRequest request) {
-        Product product = new Product();
-
-        product.setProductName(request.getProductName());
-        product.setProductPrice(request.getProductPrice());
-
-        return productRepository.save(product);
+    public ProductResponse createProduct(ProductCreationRequest request) {
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setProductName(request.getProductName());
+        productEntity.setProductPrice(request.getProductPrice());
+        ProductEntity saved = productRepository.save(productEntity);
+        return new ProductResponse(saved.getProductName(), saved.getProductPrice());
     }
 
-    public List<Product> getAllProducts() {
+    public List<ProductEntity> getAllProducts() {
         return productRepository.findAll();
     }
 
-    public Product getProduct(int productId) {
+    public ProductEntity getProduct(int productId) {
         return productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Id not found!!!"));
     }
 
-    public Product updateProduct(int productId, ProductUpdatePriceRequest request) {
-        Product product = getProduct(productId);
-        product.setProductPrice(request.getProductPrice());
-        return productRepository.save(product);
+    public ProductEntity updateProduct(int productId, ProductUpdatePriceRequest request) {
+        ProductEntity productEntity = getProduct(productId);
+        productEntity.setProductPrice(request.getProductPrice());
+        return productRepository.save(productEntity);
     }
 
     public String deleteProduct(int productId) {

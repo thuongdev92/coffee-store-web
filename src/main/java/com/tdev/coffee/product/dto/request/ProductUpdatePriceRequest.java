@@ -1,4 +1,4 @@
-package com.tdev.coffee.product.dto;
+package com.tdev.coffee.product.dto.request;
 
 public class ProductUpdatePriceRequest {
     private int productPrice;

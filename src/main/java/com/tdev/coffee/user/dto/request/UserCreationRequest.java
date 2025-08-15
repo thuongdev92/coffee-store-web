@@ -1,4 +1,4 @@
-package com.tdev.coffee.user.dto;
+package com.tdev.coffee.user.dto.request;
 
 import com.tdev.coffee.user.validation.username.UniqueUsername;
 import jakarta.validation.constraints.NotBlank;
